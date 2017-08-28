@@ -7,12 +7,13 @@ app.listen(5000); // Use local port 5000
 
 var PythonShell = require('python-shell');
 
-var PololuMaestro = require("node-pololumaestro");
-var maestro = new PololuMaestro("/dev/ttyACM0");
+var PololuMaestro = require("maestro-servo-controller");
+PololuMaestro.connect ("/dev/ttyACM0");
+//var maestro = new PololuMaestro("/dev/ttyACM0");
 var yaw = 1200;
 var pitch = 1800;
 //wait until connection is ready
-maestro.on("ready", function() { // Set servo speed and some servo position 
+//maestro.on("ready", function() { // Set servo speed and some servo position 
  console.log("connection made");
  maestro.setSpeed(0, 60);
  maestro.setSpeed(1, 60);
@@ -29,7 +30,7 @@ maestro.on("ready", function() { // Set servo speed and some servo position
  maestro.setSpeed(12, 60);
  maestro.setSpeed(13, 60);
 
-});
+//});
 // Http handler function
 function handler (req, res) {
 
