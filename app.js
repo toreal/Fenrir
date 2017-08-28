@@ -7,8 +7,8 @@ app.listen(5000); // Use local port 5000
 
 var PythonShell = require('python-shell');
 
-var PololuMaestro = require("maestro-servo-controller");
-PololuMaestro.connect ("/dev/ttyACM0");
+var maestro = require("maestro-servo-controller");
+maestro.connect ("/dev/ttyACM0");
 //var maestro = new PololuMaestro("/dev/ttyACM0");
 var yaw = 1200;
 var pitch = 1800;
